@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio | Bruno Pedron Rupaner</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: A single-page, vertical-scrolling application with a fixed top navigation bar. The structure is thematic to highlight skills and projects. It starts with a hero section, followed by 'About', a categorized 'Skills' section with filtering tags, a 'Projects' section with expandable case studies (including an HTML/CSS architecture diagram), an 'Experience' timeline, and a final 'Contact' section. This structure guides the user from a high-level summary to deep, evidence-based examples, optimizing for recruiter engagement. -->
-    <!-- Visualization & Content Choices: 1. Skills Section: Replaced radar chart with a categorized grid of skills for clarity and factual representation. 2. Project Architecture Diagram: WordPress Project Description -> Goal: Organize/Inform -> Viz: HTML/CSS Diagram -> Interaction: Static visual -> Justification: Provides a critical visual aid without using forbidden SVG/image files, demonstrating frontend capability. 3. Experience Timeline: CV Experience/Education -> Goal: Show Change -> Viz: Vertical Timeline (HTML/CSS) -> Interaction: Hover effects -> Justification: Intuitive way to display career progression chronologically. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    
+    <!-- Carrega o Tailwind CSS PRIMEIRO -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração para ativar o darkMode: 'class' DEPOIS -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -29,9 +35,15 @@
         .architecture-diagram {
             border: 2px solid #a3a3a3;
         }
+        .dark .architecture-diagram {
+             border: 2px solid #475569;
+        }
         .arch-component {
             border: 1px solid #78716c;
             position: relative;
+        }
+        .dark .arch-component {
+             border: 1px solid #64748b;
         }
         .flow-arrow::after {
             content: '→';
@@ -47,7 +59,7 @@
         }
     </style>
 </head>
-<body class="antialiased bg-stone-50 text-stone-800 dark:bg-slate-900 dark:text-slate-300">
+<body class="antialiased bg-slate-100 text-stone-800 dark:bg-slate-900 dark:text-slate-300">
 
     <header id="header" class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm dark:border-b dark:border-slate-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -70,113 +82,111 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800">
-            <a href="#sobre" class="block py-2 px-6 text-stone-600 hover:bg-stone-100 dark:text-slate-300 dark:hover:bg-slate-700">Sobre</a>
-            <a href="#habilidades" class="block py-2 px-6 text-stone-600 hover:bg-stone-100 dark:text-slate-300 dark:hover:bg-slate-700">Habilidades</a>
-            <a href="#projetos" class="block py-2 px-6 text-stone-600 hover:bg-stone-100 dark:text-slate-300 dark:hover:bg-slate-700">Projetos</a>
-            <a href="#experiencia" class="block py-2 px-6 text-stone-600 hover:bg-stone-100 dark:text-slate-300 dark:hover:bg-slate-700">Experiência</a>
-            <a href="#contato" class="block py-2 px-6 text-stone-600 hover:bg-stone-100 dark:text-slate-300 dark:hover:bg-slate-700">Contato</a>
+            <a href="#sobre" class="block py-2 px-6 text-stone-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Sobre</a>
+            <a href="#habilidades" class="block py-2 px-6 text-stone-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Habilidades</a>
+            <a href="#projetos" class="block py-2 px-6 text-stone-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Projetos</a>
+            <a href="#experiencia" class="block py-2 px-6 text-stone-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Experiência</a>
+            <a href="#contato" class="block py-2 px-6 text-stone-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Contato</a>
         </div>
     </header>
 
     <main class="pt-20">
 
-        <section id="hero" class="py-20 md:py-32">
+        <section id="hero" class="py-20 md:py-20">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-4xl md:text-6xl font-bold text-stone-800 dark:text-white leading-tight">Bruno Pedron Rupaner</h2>
                 <p class="mt-4 text-lg md:text-xl text-stone-600 dark:text-slate-300">Estudante de Análise e Desenvolvimento de Sistemas com foco em <span class="text-amber-600 dark:text-amber-500 font-semibold">AWS & DevSecOps</span>.</p>
                 <p class="mt-2 text-md md:text-lg text-stone-500 dark:text-slate-400">Construindo infraestruturas na nuvem resilientes, escaláveis e automatizadas.</p>
                 <div class="mt-8 flex justify-center space-x-4">
                     <a href="#contato" class="bg-stone-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-stone-700 dark:bg-amber-600 dark:hover:bg-amber-500 transition shadow-lg">Entre em Contato</a>
-                    <a href="#projetos" class="bg-white text-stone-800 font-bold py-3 px-6 rounded-lg hover:bg-stone-100 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600 transition border border-stone-300 dark:border-slate-600 shadow-lg">Meus Projetos</a>
+                    <a href="#projetos" class="bg-white text-stone-800 font-bold py-3 px-6 rounded-lg hover:bg-slate-50 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600 transition border border-slate-300 dark:border-slate-600 shadow-lg">Meus Projetos</a>
                 </div>
             </div>
         </section>
 
-        <section id="sobre" class="py-24 bg-white dark:bg-slate-800">
+        <section id="sobre" class="py-20">
             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h3 class="text-3xl font-bold text-stone-800 dark:text-white">Sobre Mim</h3>
-                    <p class="mt-4 text-lg text-stone-600 dark:text-slate-300 leading-relaxed">
-                        Sou um estudante de Análise e Desenvolvimento de Sistemas na <span class="font-semibold">Universidade Federal do Paraná (UFPR)</span>, apaixonado por resolver problemas complexos através da tecnologia. Minha jornada acadêmica e profissional está focada na especialização em computação em nuvem e práticas DevOps, onde busco aplicar meus conhecimentos para criar soluções eficientes e seguras.
-                    </p>
-                    <p class="mt-4 text-lg text-stone-600 dark:text-slate-300 leading-relaxed">
-                        Atualmente, estou imerso em um estágio em <span class="font-semibold">AWS e DevSecOps na Compass UOL</span>, onde aprimoro minhas habilidades práticas em um ambiente dinâmico. Com proficiência avançada em inglês (IELTS 7.0/C1), estou preparado para colaborar em equipes globais e consumir documentação técnica de ponta, mantendo-me sempre atualizado com as últimas tendências do setor.
-                    </p>
+                <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 md:p-12 rounded-lg shadow-xl dark:border-slate-700 border-t-4 border-amber-500">
+                    <div class="text-center">
+                        <h3 class="text-3xl font-bold text-stone-800 dark:text-white">Sobre Mim</h3>
+                        <p class="mt-4 text-lg text-stone-600 dark:text-slate-300 leading-relaxed">
+                            Sou um estudante de Análise e Desenvolvimento de Sistemas na <span class="font-semibold">Universidade Federal do Paraná (UFPR)</span>, apaixonado por resolver problemas complexos através da tecnologia. Minha jornada acadêmica e profissional está focada na especialização em computação em nuvem e práticas DevOps, onde busco aplicar meus conhecimentos para criar soluções eficientes e seguras.
+                        </p>
+                        <p class="mt-4 text-lg text-stone-600 dark:text-slate-300 leading-relaxed">
+                            Atualmente, estou imerso em um estágio em <span class="font-semibold">AWS e DevSecOps na Compass UOL</span>, onde aprimoro minhas habilidades práticas em um ambiente dinâmico. Com proficiência avançada em inglês (IELTS 7.0/C1), estou preparado para colaborar em equipes globais e consumir documentação técnica de ponta, mantendo-me sempre atualizado com as últimas tendências do setor.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="habilidades" class="py-24">
+        <section id="habilidades" class="py-20 bg-white dark:bg-slate-800">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
+                <div class="text-center mb-10">
                     <h3 class="text-3xl font-bold text-stone-800 dark:text-white">Habilidades Técnicas</h3>
-                    <p class="mt-2 text-lg text-stone-600 dark:text-slate-400">Minhas competências em nuvem, automação e desenvolvimento, aplicadas em projetos e experiências reais.</p>
+                    <p class="mt-2 text-lg text-stone-600 dark:text-slate-400">Minhas competências em nuvem, automação e desenvolvimento.</p>
                 </div>
-                <div class="flex flex-col lg:flex-row items-start gap-12">
-                    <div class="w-full lg:w-2/3 grid md:grid-cols-2 gap-8">
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md dark:border dark:border-slate-700">
-                            <h4 class="font-bold text-xl text-stone-800 dark:text-white mb-3">Nuvem & Infraestrutura</h4>
-                            <ul class="space-y-2 text-stone-600 dark:text-slate-300">
-                                <li>AWS (EC2, VPC, S3, ALB, Auto Scaling, EFS, Aurora)</li>
-                                <li>Administração de Servidores Linux</li>
-                                <li>FinOps (Gerenciamento de Custos na Nuvem)</li>
-                            </ul>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md dark:border dark:border-slate-700">
-                            <h4 class="font-bold text-xl text-stone-800 dark:text-white mb-3">IaC & Automação</h4>
-                            <ul class="space-y-2 text-stone-600 dark:text-slate-300">
-                                <li>Terraform</li>
-                                <li>Princípios de CI/CD</li>
-                                <li>Scripting (Bash/Shell)</li>
-                            </ul>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md dark:border dark:border-slate-700">
-                            <h4 class="font-bold text-xl text-stone-800 dark:text-white mb-3">Conteinerização</h4>
-                            <ul class="space-y-2 text-stone-600 dark:text-slate-300">
-                                <li>Docker</li>
-                                <li>Kubernetes (Conceitos)</li>
-                            </ul>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md dark:border dark:border-slate-700">
-                            <h4 class="font-bold text-xl text-stone-800 dark:text-white mb-3">Desenvolvimento & Dados</h4>
-                            <ul class="space-y-2 text-stone-600 dark:text-slate-300">
-                                <li>JavaScript (Node.js)</li>
-                                <li>Bancos de Dados (MySQL, PostgreSQL)</li>
-                                <li>Controle de Versão com Git/GitHub</li>
-                            </ul>
-                        </div>
+                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+                    <div class="bg-slate-50 border border-slate-300 dark:bg-slate-900/[.5] p-6 rounded-lg shadow-xl dark:border-slate-700 border-t-4 border-t-amber-500">
+                        <h4 class="font-bold text-xl text-stone-800 dark:text-white mb-3">Nuvem & Infraestrutura</h4>
+                        <ul class="space-y-2 text-stone-600 dark:text-slate-300">
+                            <li>AWS (EC2, VPC, S3, ALB, Auto Scaling, EFS, Aurora)</li>
+                            <li>Administração de Servidores Linux</li>
+                            <li>FinOps (Gerenciamento de Custos na Nuvem)</li>
+                        </ul>
                     </div>
-                    <div class="w-full lg:w-1/3">
-                        <div class="bg-stone-100 dark:bg-slate-800 dark:border dark:border-slate-700 p-6 rounded-lg">
-                            <h4 class="font-bold text-xl text-stone-800 dark:text-white mb-4 text-center lg:text-left">Filtre os Projetos</h4>
-                            <p class="text-stone-600 dark:text-slate-400 mb-6 text-center lg:text-left">Clique nas tags para ver como apliquei essas habilidades.</p>
-                            <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
-                                <button data-skill="all" class="skill-tag bg-amber-500 text-white dark:bg-amber-600 px-4 py-2 rounded-full font-semibold">Todas</button>
-                                <button data-skill="AWS" class="skill-tag bg-white hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">AWS</button>
-                                <button data-skill="Segurança" class="skill-tag bg-white hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Segurança</button>
-                                <button data-skill="Docker/Containerização" class="skill-tag bg-white hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Docker/Containerização</button>
-                                <button data-skill="Kubernetes" class="skill-tag bg-white hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Kubernetes</button>
-                                <button data-skill="CI/CD" class="skill-tag bg-white hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">CI/CD</button>
-                                <button data-skill="Banco de Dados" class="skill-tag bg-white hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Banco de Dados</button>
-                                <button data-skill="IaC" class="skill-tag bg-white hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">IaC</button>
-                                <button data-skill="Metodologias Ágeis" class="skill-tag bg-white hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Metodologias Ágeis</button>
-                                <button data-skill="Colaboração" class="skill-tag bg-white hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Colaboração</button>
-                            </div>
-                        </div>
+                    <div class="bg-slate-50 border border-slate-300 dark:bg-slate-900/[.5] p-6 rounded-lg shadow-xl dark:border-slate-700 border-t-4 border-t-amber-500">
+                        <h4 class="font-bold text-xl text-stone-800 dark:text-white mb-3">IaC & Automação</h4>
+                        <ul class="space-y-2 text-stone-600 dark:text-slate-300">
+                            <li>Terraform</li>
+                            <li>Princípios de CI/CD</li>
+                            <li>Scripting (Bash/Shell)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-300 dark:bg-slate-900/[.5] p-6 rounded-lg shadow-xl dark:border-slate-700 border-t-4 border-t-amber-500">
+                        <h4 class="font-bold text-xl text-stone-800 dark:text-white mb-3">Conteinerização</h4>
+                        <ul class="space-y-2 text-stone-600 dark:text-slate-300">
+                            <li>Docker</li>
+                            <li>Kubernetes (Conceitos)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-300 dark:bg-slate-900/[.5] p-6 rounded-lg shadow-xl dark:border-slate-700 border-t-4 border-t-amber-500">
+                        <h4 class="font-bold text-xl text-stone-800 dark:text-white mb-3">Desenvolvimento & Dados</h4>
+                        <ul class="space-y-2 text-stone-600 dark:text-slate-300">
+                            <li>JavaScript (Node.js)</li>
+                            <li>Bancos de Dados (MySQL, PostgreSQL)</li>
+                            <li>Controle de Versão com Git/GitHub</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projetos" class="py-24 bg-white dark:bg-slate-800">
+        <section id="projetos" class="py-20">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
+                <div class="text-center">
                     <h3 class="text-3xl font-bold text-stone-800 dark:text-white">Projetos em Destaque</h3>
                     <p class="mt-2 text-lg text-stone-600 dark:text-slate-400">A teoria na prática: estudos de caso de desafios que resolvi.</p>
                 </div>
-                <div id="projects-container" class="grid md:grid-cols-2 gap-8 items-stretch">
+                
+                <div class="max-w-4xl mx-auto my-10">
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <button data-skill="all" class="skill-tag bg-amber-500 text-white dark:bg-amber-600 px-4 py-2 rounded-full font-semibold">Todas</button>
+                        <button data-skill="AWS" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">AWS</button>
+                        <button data-skill="Segurança" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Segurança</button>
+                        <button data-skill="Docker/Containerização" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Docker/Containerização</button>
+                        <button data-skill="Kubernetes" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Kubernetes</button>
+                        <button data-skill="CI/CD" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">CI/CD</button>
+                        <button data-skill="Banco de Dados" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Banco de Dados</button>
+                        <button data-skill="IaC" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">IaC</button>
+                        <button data-skill="Metodologias Ágeis" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Metodologias Ágeis</button>
+                        <button data-skill="Colaboração" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Colaboração</button>
+                    </div>
+                </div>
+
+                <div id="projects-container" class="grid md:grid-cols-2 gap-8 items-start">
                     
-                    <div class="project-card flex flex-col bg-stone-50 dark:bg-slate-800 dark:border dark:border-slate-700 rounded-xl shadow-lg overflow-hidden" data-skills='["AWS", "Segurança", "Docker/Containerização", "Banco de Dados", "IaC"]'>
+                    <div class="project-card flex flex-col bg-white border border-slate-300 dark:bg-slate-800 dark:border-slate-700 rounded-xl shadow-xl overflow-hidden border-t-4 border-t-amber-500" data-skills='["AWS", "Segurança", "Docker/Containerização", "Banco de Dados", "IaC"]'>
                         <div class="p-8 flex flex-col flex-grow">
                             <div class="flex-grow">
                                 <h4 class="text-2xl font-bold text-stone-800 dark:text-white">WordPress em Alta Disponibilidade na AWS</h4>
@@ -190,12 +200,12 @@
                             </div>
                             <button class="toggle-details mt-6 text-amber-600 dark:text-amber-500 font-semibold hover:underline self-start">Ver Detalhes ▼</button>
                         </div>
-                        <div class="details-content bg-white dark:bg-slate-800 p-8 border-t border-stone-200 dark:border-slate-700 hidden">
+                        <div class="details-content bg-slate-50 dark:bg-slate-700/[.2] p-8 border-t border-slate-300 dark:border-slate-700 hidden">
                             <h5 class="font-bold text-lg mb-2 dark:text-white">O Desafio</h5>
                             <p class="text-stone-600 dark:text-slate-300 mb-4">Hospedar um site WordPress garantindo operação contínua, performance e segurança, mesmo sob picos de tráfego ou falhas de hardware.</p>
                             <h5 class="font-bold text-lg mb-2 dark:text-white">Arquitetura da Solução</h5>
                             <p class="text-stone-600 dark:text-slate-300 mb-4">A arquitetura foi desenhada seguindo as melhores práticas da AWS, utilizando sub-redes privadas para proteger a aplicação e o banco de dados, e distribuindo recursos em múltiplas Zonas de Disponibilidade para alta resiliência.</p>
-                            <div class="architecture-diagram p-4 rounded-lg my-4 text-center text-xs text-stone-700 dark:text-slate-400 bg-stone-100 dark:bg-slate-900 border-stone-300 dark:border-slate-600">
+                            <div class="architecture-diagram p-4 rounded-lg my-4 text-center text-xs text-stone-700 dark:text-slate-400 bg-slate-100 dark:bg-slate-900 border-slate-300 dark:border-slate-600">
                                 <p class="font-bold mb-2">Internet</p>
                                 <p class="mb-2">↓</p>
                                 <div class="arch-component rounded p-2 bg-orange-100 border-orange-300 dark:bg-orange-900/30 dark:border-orange-500 max-w-xs mx-auto">Application Load Balancer (ALB)</div>
@@ -223,7 +233,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card flex flex-col bg-stone-50 dark:bg-slate-800 dark:border dark:border-slate-700 rounded-xl shadow-lg overflow-hidden" data-skills='["CI/CD", "Docker/Containerização", "Kubernetes"]'>
+                    <div class="project-card flex flex-col bg-white border border-slate-300 dark:bg-slate-800 dark:border-slate-700 rounded-xl shadow-xl overflow-hidden border-t-4 border-t-amber-500" data-skills='["CI/CD", "Docker/Containerização", "Kubernetes"]'>
                         <div class="p-8 flex flex-col flex-grow">
                              <div class="flex-grow">
                                 <h4 class="text-2xl font-bold text-stone-800 dark:text-white">CI/CD com GitHub Actions, Docker e ArgoCD</h4>
@@ -236,19 +246,19 @@
                             </div>
                             <button class="toggle-details mt-6 text-amber-600 dark:text-amber-500 font-semibold hover:underline self-start">Ver Detalhes ▼</button>
                         </div>
-                        <div class="details-content bg-white dark:bg-slate-800 p-8 border-t border-stone-200 dark:border-slate-700 hidden">
+                        <div class="details-content bg-slate-50 dark:bg-slate-700/[.2] p-8 border-t border-slate-300 dark:border-slate-700 hidden">
                             <h5 class="font-bold text-lg mb-2 dark:text-white">O Desafio</h5>
                             <p class="text-stone-600 dark:text-slate-300 mb-4">Automatizar todo o ciclo de vida de uma aplicação, desde a alteração no código até sua implantação em produção, utilizando uma abordagem GitOps onde o Git é a única fonte da verdade.</p>
                             <h5 class="font-bold text-lg mb-2 dark:text-white">Fluxo Automatizado</h5>
                             <p class="text-stone-600 dark:text-slate-300 mb-4">Este projeto demonstra como empresas modernas mantêm agilidade e confiabilidade em seus deploys, integrando ferramentas líderes de mercado para criar um pipeline seguro e observável.</p>
                             <div class="space-y-4 text-center text-sm my-6">
                                 <div class="flex items-center justify-center gap-4">
-                                    <div class="arch-component flow-arrow rounded-lg p-3 bg-stone-200 dark:bg-slate-700">GitHub Repo (Código)</div>
+                                    <div class="arch-component flow-arrow rounded-lg p-3 bg-slate-200 dark:bg-slate-700">GitHub Repo (Código)</div>
                                     <div class="arch-component rounded-lg p-3 bg-blue-100 dark:bg-blue-900/40">GitHub Actions (CI)</div>
                                 </div>
                                 <p class="text-2xl text-zinc-400 dark:text-zinc-500">↓</p>
                                 <div class="flex items-center justify-center gap-4 flex-row-reverse">
-                                     <div class="arch-component flow-arrow rounded-lg p-3 bg-stone-200 dark:bg-slate-700">GitHub Repo (Manifestos)</div>
+                                     <div class="arch-component flow-arrow rounded-lg p-3 bg-slate-200 dark:bg-slate-700">GitHub Repo (Manifestos)</div>
                                     <div class="arch-component rounded-lg p-3 bg-sky-100 dark:bg-sky-900/40">Docker Hub</div>
                                 </div>
                                 <p class="text-2xl text-zinc-400 dark:text-zinc-500">↓</p>
@@ -269,21 +279,21 @@
             </div>
         </section>
 
-        <section id="experiencia" class="py-24">
+        <section id="experiencia" class="py-20 bg-white dark:bg-slate-800">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
+                <div class="text-center mb-10">
                     <h3 class="text-3xl font-bold text-stone-800 dark:text-white">Jornada Profissional e Acadêmica</h3>
                     <p class="mt-2 text-lg text-stone-600 dark:text-slate-400">Uma linha do tempo da minha formação e experiência prática.</p>
                 </div>
                 <div class="relative wrap overflow-hidden p-10 h-full">
-                    <div class="border-2-2 absolute border-opacity-20 border-stone-700 dark:border-slate-700 h-full border" style="left: 50%"></div>
+                    <div class="border-2-2 absolute border-opacity-20 border-slate-700 h-full border" style="left: 50%"></div>
                     
                      <div class="mb-8 flex justify-between items-center w-full right-timeline">
                         <div class="order-1 w-5/12"></div>
                         <div class="z-20 flex items-center order-1 bg-stone-800 dark:bg-slate-700 shadow-xl w-8 h-8 rounded-full">
                             <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
                         </div>
-                        <div class="order-1 bg-white dark:bg-slate-800 dark:border dark:border-slate-700 rounded-lg shadow-xl w-5/12 px-6 py-4">
+                        <div class="order-1 bg-slate-50 border border-slate-300 dark:bg-slate-900/[.5] dark:border-slate-700 rounded-lg shadow-xl w-5/12 px-6 py-4 border-t-4 border-t-amber-500">
                             <p class="text-sm text-stone-500 dark:text-slate-400">Jun 2025 - Atualmente</p>
                             <h4 class="font-bold text-lg text-stone-800 dark:text-white">Estágio em AWS e DevSecOps</h4>
                             <p class="text-md leading-snug tracking-wide text-stone-600 dark:text-slate-300">Compass UOL</p>
@@ -296,7 +306,7 @@
                         <div class="z-20 flex items-center order-1 bg-stone-800 dark:bg-slate-700 shadow-xl w-8 h-8 rounded-full">
                             <h1 class="mx-auto text-white font-semibold text-lg">2</h1>
                         </div>
-                        <div class="order-1 bg-white dark:bg-slate-800 dark:border dark:border-slate-700 rounded-lg shadow-xl w-5/12 px-6 py-4">
+                        <div class="order-1 bg-slate-50 border border-slate-300 dark:bg-slate-900/[.5] dark:border-slate-700 rounded-lg shadow-xl w-5/12 px-6 py-4 border-t-4 border-t-amber-500">
                             <p class="text-sm text-stone-500 dark:text-slate-400">Set 2024 - Dez 2024</p>
                             <h4 class="font-bold text-lg text-stone-800 dark:text-white">Líder Técnico Voluntário - Projeto InfoJus</h4>
                             <p class="text-md leading-snug tracking-wide text-stone-600 dark:text-slate-300">Universidade Federal do Paraná (UFPR)</p>
@@ -309,7 +319,7 @@
                         <div class="z-20 flex items-center order-1 bg-stone-800 dark:bg-slate-700 shadow-xl w-8 h-8 rounded-full">
                             <h1 class="mx-auto font-semibold text-lg text-white">3</h1>
                         </div>
-                        <div class="order-1 bg-white dark:bg-slate-800 dark:border dark:border-slate-700 rounded-lg shadow-xl w-5/12 px-6 py-4">
+                        <div class="order-1 bg-slate-50 border border-slate-300 dark:bg-slate-900/[.5] dark:border-slate-700 rounded-lg shadow-xl w-5/12 px-6 py-4 border-t-4 border-t-amber-500">
                             <p class="text-sm text-stone-500 dark:text-slate-400">Jul 2024 - Nov 2024</p>
                             <h4 class="font-bold text-lg text-stone-800 dark:text-white">IBM Back-end JavaScript Developer</h4>
                             <p class="text-md leading-snug tracking-wide text-stone-600 dark:text-slate-300">Coursera</p>
@@ -322,7 +332,7 @@
                         <div class="z-20 flex items-center order-1 bg-stone-800 dark:bg-slate-700 shadow-xl w-8 h-8 rounded-full">
                             <h1 class="mx-auto text-white font-semibold text-lg">4</h1>
                         </div>
-                        <div class="order-1 bg-white dark:bg-slate-800 dark:border dark:border-slate-700 rounded-lg shadow-xl w-5/12 px-6 py-4">
+                        <div class="order-1 bg-slate-50 border border-slate-300 dark:bg-slate-900/[.5] dark:border-slate-700 rounded-lg shadow-xl w-5/12 px-6 py-4 border-t-4 border-t-amber-500">
                             <p class="text-sm text-stone-500 dark:text-slate-400">Fev 2024 - Dez 2026</p>
                             <h4 class="font-bold text-lg text-stone-800 dark:text-white">Análise e Desenvolvimento de Sistemas</h4>
                             <p class="text-md leading-snug tracking-wide text-stone-600 dark:text-slate-300">Universidade Federal do Paraná (UFPR)</p>
@@ -334,7 +344,7 @@
             </div>
         </section>
 
-        <section id="contato" class="py-24 bg-stone-800 dark:bg-slate-950 text-white">
+        <section id="contato" class="py-20 bg-stone-800 dark:bg-slate-950 text-white">
             <div class="container mx-auto px-6 text-center">
                 <h3 class="text-3xl font-bold">Vamos Conversar?</h3>
                 <p class="mt-4 text-lg text-stone-300 dark:text-slate-400 max-w-2xl mx-auto">Estou sempre aberto a novas oportunidades e desafios. Se você tem um projeto em mente ou acredita que eu seria uma boa adição à sua equipe, entre em contato.</p>
@@ -362,12 +372,14 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Lógica do Menu Mobile
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
             
+            // Lógica de Scroll Suave e Fechamento do Menu Mobile
             document.querySelectorAll('#mobile-menu a, #header nav a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     if (this.getAttribute('href').startsWith('#')) {
@@ -391,6 +403,7 @@
                 });
             });
 
+            // Lógica de Filtro dos Projetos
             const skillTags = document.querySelectorAll('.skill-tag');
             const projectCards = document.querySelectorAll('.project-card');
             let activeSkill = 'all';
@@ -401,10 +414,10 @@
                     
                     skillTags.forEach(t => {
                         t.classList.remove('bg-amber-500', 'text-white', 'dark:bg-amber-600');
-                        t.classList.add('bg-white', 'dark:bg-slate-700');
+                        t.classList.add('bg-white', 'shadow-md', 'hover:bg-amber-500', 'hover:text-white', 'dark:bg-slate-700', 'dark:hover:bg-amber-600');
                     });
                     tag.classList.add('bg-amber-500', 'text-white', 'dark:bg-amber-600');
-                    tag.classList.remove('bg-white', 'dark:bg-slate-700');
+                    tag.classList.remove('bg-white', 'shadow-md', 'hover:bg-amber-500', 'hover:text-white', 'dark:bg-slate-700', 'dark:hover:bg-amber-600');
 
                     projectCards.forEach(card => {
                         const cardSkills = JSON.parse(card.dataset.skills || '[]');
@@ -417,6 +430,7 @@
                 });
             });
 
+            // Lógica para expandir/recolher detalhes dos projetos
             const detailToggles = document.querySelectorAll('.toggle-details');
             detailToggles.forEach(toggle => {
                 toggle.addEventListener('click', (event) => {
@@ -424,20 +438,17 @@
                     const content = button.closest('.project-card').querySelector('.details-content');
                     if(content) {
                         content.classList.toggle('hidden');
-                        if (content.classList.contains('hidden')) {
-                            button.textContent = 'Ver Detalhes ▼';
-                        } else {
-                            button.textContent = 'Ocultar Detalhes ▲';
-                        }
-                    } self-start
+                        button.textContent = content.classList.contains('hidden') ? 'Ver Detalhes ▼' : 'Ocultar Detalhes ▲';
+                    }
                 });
             });
 
+            // --- LÓGICA DO BOTÃO DE TEMA (VERSÃO CORRIGIDA E FINAL) ---
             const themeToggleBtn = document.getElementById('theme-toggle');
             const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
             const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-            // Função para aplicar o tema e atualizar os ícones
+            // Função para aplicar o tema e atualizar o ícone
             const applyTheme = (theme) => {
                 if (theme === 'dark') {
                     document.documentElement.classList.add('dark');
@@ -445,24 +456,22 @@
                     themeToggleDarkIcon.classList.add('hidden');
                 } else {
                     document.documentElement.classList.remove('dark');
-                    themeToggleLightIcon.classList.add('hidden');
                     themeToggleDarkIcon.classList.remove('hidden');
+                    themeToggleLightIcon.classList.add('hidden');
                 }
             };
-
-            // Determina o tema inicial ao carregar
-            const initialTheme = localStorage.getItem('theme') || 
-                                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            applyTheme(initialTheme);
-
-            // Adiciona o listener de clique ao botão
+            
+            // Evento de clique no botão
             themeToggleBtn.addEventListener('click', () => {
-                const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
+                const isDark = document.documentElement.classList.contains('dark');
+                const newTheme = isDark ? 'light' : 'dark';
                 localStorage.setItem('theme', newTheme);
                 applyTheme(newTheme);
             });
+
+            // Aplica o tema inicial ao carregar a página
+            const initialTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            applyTheme(initialTheme);
         });
     </script>
 </body>
