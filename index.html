@@ -92,7 +92,7 @@
 
     <main class="pt-20">
 
-        <section id="hero" class="py-20 md:py-32">
+        <section id="hero" class="pt-20 md:pt-32 pb-16 md:pb-20">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-4xl md:text-6xl font-bold text-stone-800 dark:text-white leading-tight">Bruno Pedron Rupaner</h2>
                 <p class="mt-4 text-lg md:text-xl text-stone-600 dark:text-slate-300">Estudante de Análise e Desenvolvimento de Sistemas com foco em <span class="text-amber-600 dark:text-amber-500 font-semibold">AWS & DevSecOps</span>.</p>
@@ -205,7 +205,7 @@
                             <h5 class="font-bold text-lg mb-2 dark:text-white">Arquitetura da Solução</h5>
                             <p class="text-stone-600 dark:text-slate-300 mb-4">A arquitetura foi desenhada seguindo as melhores práticas da AWS, utilizando sub-redes privadas para proteger a aplicação e o banco de dados, e distribuindo recursos em múltiplas Zonas de Disponibilidade para alta resiliência.</p>
                             
-                            <div class="relative group cursor-pointer" id="diagram-trigger-wp">
+                            <div class="relative group cursor-pointer" id="diagram-trigger-wp" data-modal-size="max-w-7xl">
                                 <img src="https://i.postimg.cc/RZK3NbBw/dwadwa.png" alt="Diagrama de arquitetura do projeto WordPress na AWS" class="rounded-lg w-full border-2 border-slate-300 dark:border-slate-600">
                                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center rounded-lg">
                                     <p class="text-white opacity-0 group-hover:opacity-100 transition duration-300 font-semibold">Ampliar Imagem</p>
@@ -236,7 +236,7 @@
                             <p class="text-stone-600 dark:text-slate-300 mb-4">Automatizar todo o ciclo de vida de uma aplicação, desde a alteração no código até sua implantação em produção, utilizando uma abordagem GitOps onde o Git é a única fonte da verdade.</p>
                             <h5 class="font-bold text-lg mb-2 dark:text-white">Fluxo Automatizado</h5>
                             
-                            <div class="relative group cursor-pointer" id="diagram-trigger-cicd">
+                            <div class="relative group cursor-pointer" id="diagram-trigger-cicd" data-modal-size="max-w-4xl">
                                 <img src="https://i.postimg.cc/pTrvwpVq/Untitled-diagram-Mermaid-Chart-2025-09-25-013226.png" alt="Diagrama de arquitetura do projeto CI/CD" class="rounded-lg w-full border-2 border-slate-300 dark:border-slate-600">
                                 <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center rounded-lg">
                                     <p class="text-white opacity-0 group-hover:opacity-100 transition duration-300 font-semibold">Ampliar Imagem</p>
@@ -404,7 +404,8 @@
 
     <!-- Modal para a Imagem do Diagrama -->
     <div id="image-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-[100] flex items-center justify-center p-4 transition-opacity duration-300">
-        <div class="relative bg-white dark:bg-slate-800 p-4 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-auto">
+        <!-- PARA AJUSTAR O TAMANHO MÁXIMO DA IMAGEM, ALTERE A CLASSE 'max-w-*' ABAIXO -->
+        <div id="modal-content" class="relative bg-white dark:bg-slate-800 p-4 rounded-lg w-11/12 max-h-[90vh] overflow-auto">
             <button id="modal-close-button" class="absolute top-2 right-4 text-stone-800 dark:text-slate-200 hover:text-red-500 dark:hover:text-red-500 text-4xl font-bold">&times;</button>
             <img id="modal-image" src="" alt="Diagrama de arquitetura em tela cheia" class="w-full h-auto">
         </div>
@@ -488,11 +489,18 @@
             const modalImage = document.getElementById('modal-image');
             const modalCloseButton = document.getElementById('modal-close-button');
             const diagramTriggers = document.querySelectorAll('[id^="diagram-trigger-"]');
+            const modalContent = document.getElementById('modal-content');
 
-            if (imageModal && modalImage && modalCloseButton && diagramTriggers.length > 0) {
+            if (imageModal && modalImage && modalCloseButton && diagramTriggers.length > 0 && modalContent) {
+                 const sizeClasses = ['max-w-xl', 'max-w-2xl', 'max-w-3xl', 'max-w-4xl', 'max-w-5xl', 'max-w-6xl', 'max-w-7xl', 'max-w-full'];
                  diagramTriggers.forEach(trigger => {
                     trigger.addEventListener('click', () => {
                         const diagramSrc = trigger.querySelector('img').src;
+                        const modalSize = trigger.dataset.modalSize || 'max-w-5xl';
+                        
+                        modalContent.classList.remove(...sizeClasses);
+                        modalContent.classList.add(modalSize);
+
                         modalImage.src = diagramSrc;
                         imageModal.classList.remove('hidden');
                     });
