@@ -22,16 +22,6 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        .skill-tag {
-            transition: all 0.2s ease-in-out;
-        }
-        .project-card.filtered-out {
-            opacity: 0.3;
-            transform: scale(0.95);
-        }
-        .project-card {
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
         .architecture-diagram {
             border: 2px solid #a3a3a3;
         }
@@ -68,7 +58,6 @@
                 <nav class="hidden md:flex space-x-8">
                     <a href="#sobre" class="text-stone-600 hover:text-amber-600 dark:text-slate-300 dark:hover:text-amber-500 transition">Sobre</a>
                     <a href="#habilidades" class="text-stone-600 hover:text-amber-600 dark:text-slate-300 dark:hover:text-amber-500 transition">Habilidades</a>
-                    <a href="#projetos" class="text-stone-600 hover:text-amber-600 dark:text-slate-300 dark:hover:text-amber-500 transition">Projetos</a>
                     <a href="#experiencia" class="text-stone-600 hover:text-amber-600 dark:text-slate-300 dark:hover:text-amber-500 transition">Experiência</a>
                     <a href="#contato" class="text-stone-600 hover:text-amber-600 dark:text-slate-300 dark:hover:text-amber-500 transition">Contato</a>
                 </nav>
@@ -84,7 +73,6 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-800">
             <a href="#sobre" class="block py-2 px-6 text-stone-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Sobre</a>
             <a href="#habilidades" class="block py-2 px-6 text-stone-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Habilidades</a>
-            <a href="#projetos" class="block py-2 px-6 text-stone-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Projetos</a>
             <a href="#experiencia" class="block py-2 px-6 text-stone-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Experiência</a>
             <a href="#contato" class="block py-2 px-6 text-stone-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700">Contato</a>
         </div>
@@ -99,7 +87,6 @@
                 <p class="mt-2 text-md md:text-lg text-stone-500 dark:text-slate-400">Construindo infraestruturas na nuvem resilientes, escaláveis e automatizadas.</p>
                 <div class="mt-8 flex justify-center space-x-4">
                     <a href="#contato" class="bg-stone-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-stone-700 dark:bg-amber-600 dark:hover:bg-amber-500 transition shadow-lg">Entre em Contato</a>
-                    <a href="#projetos" class="bg-white text-stone-800 font-bold py-3 px-6 rounded-lg hover:bg-slate-50 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600 transition border border-slate-300 dark:border-slate-600 shadow-lg">Meus Projetos</a>
                 </div>
             </div>
         </section>
@@ -157,99 +144,6 @@
                             <li>Controle de Versão com Git/GitHub</li>
                         </ul>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projetos" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center">
-                    <h3 class="text-3xl font-bold text-stone-800 dark:text-white">Projetos em Destaque</h3>
-                    <p class="mt-2 text-lg text-stone-600 dark:text-slate-400">A teoria na prática: estudos de caso de desafios que resolvi.</p>
-                </div>
-                
-                <div class="max-w-4xl mx-auto my-10">
-                    <div class="flex flex-wrap gap-3 justify-center">
-                        <button data-skill="all" class="skill-tag bg-amber-500 text-white dark:bg-amber-600 px-4 py-2 rounded-full font-semibold">Todas</button>
-                        <button data-skill="AWS" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">AWS</button>
-                        <button data-skill="Segurança" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Segurança</button>
-                         <button data-skill="IaC" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">IaC</button>
-                        <button data-skill="Docker/Containerização" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Docker/Containerização</button>
-                        <button data-skill="Kubernetes" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">Kubernetes</button>
-                        <button data-skill="CI/CD" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">CI/CD</button>
-                        <button data-skill="GitOps" class="skill-tag bg-white shadow-md hover:bg-amber-500 hover:text-white dark:bg-slate-700 dark:hover:bg-amber-600 dark:hover:text-white px-4 py-2 rounded-full">GitOps</button>
-                       
-                    </div>
-                </div>
-
-                <div id="projects-container" class="grid md:grid-cols-2 gap-8 items-start">
-                    
-                    <div class="project-card flex flex-col bg-white border border-slate-300 dark:bg-slate-800 dark:border-slate-700 rounded-xl shadow-xl overflow-hidden border-t-4 border-t-amber-500" data-skills='["AWS", "Segurança", "Docker/Containerização", "IaC"]'>
-                        <div class="p-8 flex flex-col flex-grow">
-                            <div class="flex-grow">
-                                <h4 class="text-2xl font-bold text-stone-800 dark:text-white">WordPress em Alta Disponibilidade na AWS</h4>
-                                <p class="mt-2 text-stone-600 dark:text-slate-300">Implementação de uma infraestrutura de nuvem robusta e segura para hospedar WordPress, totalmente automatizada com Infraestrutura como Código.</p>
-                                <div class="mt-4 flex flex-wrap gap-2">
-                                    <span class="bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">AWS</span>
-                                    <span class="bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Segurança</span>
-                                    <span class="bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Docker</span>
-                                    <span class="bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">IaC</span>
-                                </div>
-                            </div>
-                            <button class="toggle-details mt-6 text-amber-600 dark:text-amber-500 font-semibold hover:underline self-start">Ver Detalhes ▼</button>
-                        </div>
-                        <div class="details-content bg-slate-50 dark:bg-slate-700/[.2] p-8 border-t border-slate-300 dark:border-slate-700 hidden">
-                            <h5 class="font-bold text-lg mb-2 dark:text-white">O Desafio</h5>
-                            <p class="text-stone-600 dark:text-slate-300 mb-4">Hospedar um site WordPress garantindo operação contínua, performance e segurança, mesmo sob picos de tráfego ou falhas de hardware.</p>
-                            <h5 class="font-bold text-lg mb-2 dark:text-white">Arquitetura da Solução</h5>
-                            <p class="text-stone-600 dark:text-slate-300 mb-4">A arquitetura foi desenhada seguindo as melhores práticas da AWS, utilizando sub-redes privadas para proteger a aplicação e o banco de dados, e distribuindo recursos em múltiplas Zonas de Disponibilidade para alta resiliência.</p>
-                            
-                            <div class="relative group cursor-pointer" id="diagram-trigger-wp" data-modal-size="max-w-7xl">
-                                <img src="https://i.postimg.cc/RZK3NbBw/dwadwa.png" alt="Diagrama de arquitetura do projeto WordPress na AWS" class="rounded-lg w-full border-2 border-slate-300 dark:border-slate-600">
-                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center rounded-lg">
-                                    <p class="text-white opacity-0 group-hover:opacity-100 transition duration-300 font-semibold">Ampliar Imagem</p>
-                                </div>
-                            </div>
-
-                            <h5 class="font-bold text-lg mt-6 mb-2 dark:text-white">Automação com Terraform (IaC)</h5>
-                            <p class="text-stone-600 dark:text-slate-300">Toda a infraestrutura foi definida como código usando Terraform, permitindo o provisionamento, a atualização e a destruição de forma rápida, consistente e repetível.</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card flex flex-col bg-white border border-slate-300 dark:bg-slate-800 dark:border-slate-700 rounded-xl shadow-xl overflow-hidden border-t-4 border-t-amber-500" data-skills='["CI/CD", "Docker/Containerização", "Kubernetes", "GitOps"]'>
-                        <div class="p-8 flex flex-col flex-grow">
-                             <div class="flex-grow">
-                                <h4 class="text-2xl font-bold text-stone-800 dark:text-white">CI/CD com GitHub Actions, Docker e ArgoCD</h4>
-                                <p class="mt-2 text-stone-600 dark:text-slate-300">Pipeline GitOps para automatizar o ciclo de vida de uma aplicação, do `git push` à implantação em Kubernetes, com foco em agilidade e confiabilidade.</p>
-                                <div class="mt-4 flex flex-wrap gap-2">
-                                    <span class="bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">CI/CD</span>
-                                    <span class="bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Docker</span>
-                                    <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Kubernetes</span>
-                                    <span class="bg-yellow-000 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">GitOps</span>
-                                </div>
-                            </div>
-                            <button class="toggle-details mt-6 text-amber-600 dark:text-amber-500 font-semibold hover:underline self-start">Ver Detalhes ▼</button>
-                        </div>
-                        <div class="details-content bg-slate-50 dark:bg-slate-700/[.2] p-8 border-t border-slate-300 dark:border-slate-700 hidden">
-                            <h5 class="font-bold text-lg mb-2 dark:text-white">O Desafio</h5>
-                            <p class="text-stone-600 dark:text-slate-300 mb-4">Automatizar todo o ciclo de vida de uma aplicação, desde a alteração no código até sua implantação em produção, utilizando uma abordagem GitOps onde o Git é a única fonte da verdade.</p>
-                            <h5 class="font-bold text-lg mb-2 dark:text-white">Fluxo Automatizado</h5>
-                            
-                            <div class="relative group cursor-pointer" id="diagram-trigger-cicd" data-modal-size="max-w-4xl">
-                                <img src="https://i.postimg.cc/pTrvwpVq/Untitled-diagram-Mermaid-Chart-2025-09-25-013226.png" alt="Diagrama de arquitetura do projeto CI/CD" class="rounded-lg w-full border-2 border-slate-300 dark:border-slate-600">
-                                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition duration-300 flex items-center justify-center rounded-lg">
-                                    <p class="text-white opacity-0 group-hover:opacity-100 transition duration-300 font-semibold">Ampliar Imagem</p>
-                                </div>
-                            </div>
-                            
-                            <ul class="list-disc list-inside text-stone-600 dark:text-slate-300 space-y-3 mt-6">
-                                <li><strong>CI (Integração Contínua) com GitHub Actions:</strong> A cada `git push`, o pipeline automatiza o build da aplicação em um contêiner Docker, envia a imagem para o Docker Hub e atualiza o repositório de manifestos com a nova tag.</li>
-                                <li><strong>CD (Entrega Contínua) com ArgoCD:</strong> Utilizando a metodologia GitOps, o ArgoCD monitora o repositório de manifestos. Ao detectar uma alteração, ele atualiza automaticamente a aplicação no cluster Kubernetes.</li>
-                                <li><strong>Kubernetes:</strong> Orquestra a execução dos contêineres, garantindo escalabilidade, resiliência e gerenciamento eficiente dos recursos da aplicação.</li>
-                            </ul>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -401,14 +295,6 @@
         </div>
     </footer>
 
-    <!-- Modal para a Imagem do Diagrama -->
-    <div id="image-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-[100] flex items-center justify-center p-4 transition-opacity duration-300">
-        <div id="modal-content" class="relative bg-white dark:bg-slate-800 p-4 rounded-lg w-11/12 max-h-[90vh] overflow-auto">
-            <button id="modal-close-button" class="absolute top-2 right-4 text-stone-800 dark:text-slate-200 hover:text-red-500 dark:hover:text-red-500 text-4xl font-bold">&times;</button>
-            <img id="modal-image" src="" alt="Diagrama de arquitetura em tela cheia" class="w-full h-auto">
-        </div>
-    </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Lógica do Menu Mobile
@@ -441,81 +327,6 @@
                     }
                 });
             });
-
-            // Lógica de Filtro dos Projetos
-            const skillTags = document.querySelectorAll('.skill-tag');
-            const projectCards = document.querySelectorAll('.project-card');
-            let activeSkill = 'all';
-
-            skillTags.forEach(tag => {
-                tag.addEventListener('click', () => {
-                    activeSkill = tag.dataset.skill;
-                    
-                    skillTags.forEach(t => {
-                        t.classList.remove('bg-amber-500', 'text-white', 'dark:bg-amber-600');
-                        t.classList.add('bg-white', 'shadow-md', 'hover:bg-amber-500', 'hover:text-white', 'dark:bg-slate-700', 'dark:hover:bg-amber-600');
-                    });
-                    tag.classList.add('bg-amber-500', 'text-white', 'dark:bg-amber-600');
-                    tag.classList.remove('bg-white', 'shadow-md', 'hover:bg-amber-500', 'hover:text-white', 'dark:bg-slate-700', 'dark:hover:bg-amber-600');
-
-                    projectCards.forEach(card => {
-                        const cardSkills = JSON.parse(card.dataset.skills || '[]');
-                        if (activeSkill === 'all' || cardSkills.includes(activeSkill)) {
-                            card.classList.remove('filtered-out');
-                        } else {
-                            card.classList.add('filtered-out');
-                        }
-                    });
-                });
-            });
-
-            // Lógica para expandir/recolher detalhes dos projetos
-            const detailToggles = document.querySelectorAll('.toggle-details');
-            detailToggles.forEach(toggle => {
-                toggle.addEventListener('click', (event) => {
-                    const button = event.currentTarget;
-                    const content = button.closest('.project-card').querySelector('.details-content');
-                    if(content) {
-                        content.classList.toggle('hidden');
-                        button.textContent = content.classList.contains('hidden') ? 'Ver Detalhes ▼' : 'Ocultar Detalhes ▲';
-                    }
-                });
-            });
-
-            // --- LÓGICA DO MODAL DA IMAGEM ---
-            const imageModal = document.getElementById('image-modal');
-            const modalImage = document.getElementById('modal-image');
-            const modalCloseButton = document.getElementById('modal-close-button');
-            const diagramTriggers = document.querySelectorAll('[id^="diagram-trigger-"]');
-            const modalContent = document.getElementById('modal-content');
-
-            if (imageModal && modalImage && modalCloseButton && diagramTriggers.length > 0 && modalContent) {
-                 const sizeClasses = ['max-w-xl', 'max-w-2xl', 'max-w-3xl', 'max-w-4xl', 'max-w-5xl', 'max-w-6xl', 'max-w-7xl', 'max-w-full'];
-                 diagramTriggers.forEach(trigger => {
-                    trigger.addEventListener('click', () => {
-                        const diagramSrc = trigger.querySelector('img').src;
-                        const modalSize = trigger.dataset.modalSize || 'max-w-5xl';
-                        
-                        modalContent.classList.remove(...sizeClasses);
-                        modalContent.classList.add(modalSize);
-
-                        modalImage.src = diagramSrc;
-                        imageModal.classList.remove('hidden');
-                    });
-                });
-
-                modalCloseButton.addEventListener('click', () => {
-                    imageModal.classList.add('hidden');
-                    modalImage.src = ''; 
-                });
-
-                imageModal.addEventListener('click', (e) => {
-                    if (e.target === imageModal) {
-                        imageModal.classList.add('hidden');
-                        modalImage.src = '';
-                    }
-                });
-            }
 
             // --- LÓGICA DO BOTÃO DE TEMA (VERSÃO CORRIGIDA E FINAL) ---
             const themeToggleBtn = document.getElementById('theme-toggle');
